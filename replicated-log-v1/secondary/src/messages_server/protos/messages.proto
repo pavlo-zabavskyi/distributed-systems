@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package messages;
+
+service Messages {
+  rpc Append (AppendRequest) returns (AppendResponse);
+  rpc GetAllMessages(GetAllMessagesRequest) returns (GetAllMessagesResponse);
+}
+
+message AppendRequest {
+  string message = 1;
+}
+
+message AppendResponse {
+  string status = 1;
+}
+
+message GetAllMessagesRequest {
+}
+
+message GetAllMessagesResponse {
+    repeated string messages = 1;
+}

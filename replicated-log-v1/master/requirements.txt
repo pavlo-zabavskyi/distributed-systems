@@ -1,0 +1,11 @@
+blinker==1.8.2
+click==8.1.7
+fastapi==0.115.4
+itsdangerous==2.2.0
+grpcio==1.66.2
+grpcio-testing==1.66.2
+grpcio-tools==1.66.2
+protobuf==5.27.2
+asyncio==3.4.3
+aiofiles==24.1.0
+uvicorn==0.32.0
