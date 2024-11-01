@@ -12,7 +12,6 @@ This command will:
 * Start the containers for the Master API and the Secondary APIs.
 
 After the build is complete, you can access the APIs via the following URLs:
-* Master API: http://localhost:8051
-* Secondary API A: http://localhost:8052
-* Secondary API B: http://localhost:8053
-* Secondary API C: http://localhost:8054
+* Master API: http://localhost:8050
+
+To get list of messages on secondary use gRPC `GetAllMessages` method. 

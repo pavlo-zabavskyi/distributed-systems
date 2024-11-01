@@ -94,107 +94,6 @@
 					"response": []
 				}
 			]
-		},
-		{
-			"name": "Secondary",
-			"item": [
-				{
-					"name": "A: Get Msgs List",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{secondary_a_base_ur}}/messages",
-							"host": [
-								"{{secondary_a_base_ur}}"
-							],
-							"path": [
-								"messages"
-							]
-						},
-						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
-					},
-					"response": []
-				},
-				{
-					"name": "B: Get Msgs List",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{secondary_b_base_ur}}/messages",
-							"host": [
-								"{{secondary_b_base_ur}}"
-							],
-							"path": [
-								"messages"
-							]
-						},
-						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
-					},
-					"response": []
-				},
-				{
-					"name": "C: Get Msgs List",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{secondary_c_base_ur}}/messages",
-							"host": [
-								"{{secondary_c_base_ur}}"
-							],
-							"path": [
-								"messages"
-							]
-						},
-						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
-					},
-					"response": []
-				}
-			]
 		}
 	],
 	"event": [
@@ -219,27 +118,8 @@
 	],
 	"variable": [
 		{
-			"key": "id",
-			"value": "1"
-		},
-		{
 			"key": "master_base_url",
-			"value": "http://localhost:8051",
-			"type": "string"
-		},
-		{
-			"key": "secondary_a_base_ur",
-			"value": "http://localhost:8052",
-			"type": "string"
-		},
-		{
-			"key": "secondary_b_base_ur",
-			"value": "http://localhost:8053",
-			"type": "string"
-		},
-		{
-			"key": "secondary_c_base_ur",
-			"value": "http://localhost:8054",
+			"value": "http://localhost:8050",
 			"type": "string"
 		}
 	]
