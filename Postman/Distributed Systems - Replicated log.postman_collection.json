@@ -41,7 +41,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"message\": \"Message 1\"\n}",
+							"raw": "{\n\t\"message\": \"Message 3\",\n    \"write_concern\": 4\n}",
 							"options": {
 								"raw": {
 									"language": "json"

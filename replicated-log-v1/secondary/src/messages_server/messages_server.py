@@ -1,3 +1,5 @@
+import asyncio
+import random
 import grpc
 from . import messages_pb2, messages_pb2_grpc
 
@@ -11,7 +13,10 @@ class MessagesServicer(messages_pb2_grpc.MessagesServicer):
         request: messages_pb2.AppendRequest,
         context: grpc.aio.ServicerContext,
     ) -> messages_pb2.AppendResponse:
-        print(f'[Secondary] Going to save "{request.message}" message...')
+        delay = random.randint(1, 10)
+        print(f'[Secondary] Going to save "{request.message}" message with {delay} sec delay...')
+        await asyncio.sleep(delay)
+
         await self.storage.append(request.message)
         return messages_pb2.AppendResponse(status='success')
 

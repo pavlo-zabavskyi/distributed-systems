@@ -1,7 +1,6 @@
-import asyncio
 from fastapi import FastAPI
 from models.message import MessageRequest
-from config import storage, secondaryClients
+from config import storage, replication_manager
 
 app = FastAPI()
 
@@ -9,17 +8,12 @@ app = FastAPI()
 @app.post('/append')
 async def append(message_request: MessageRequest):
     message = message_request.message
-    print(f'[Master] Going to save "{message}" message...')
+    write_concern = message_request.write_concern
+
+    print(f'[Master] Going to save "{message}" message with write concern {write_concern}...')
 
     await storage.append(message)
-
-    try:
-        await asyncio.gather(
-            *[client.append(message) for client in secondaryClients]
-        )
-        print('Successfully appended message to all secondary clients.')
-    except Exception as e:
-        print(f'Error while appending message to secondary clients: {e}')
+    await replication_manager.replicate_message(message, write_concern-1)
 
     return {
         "status": "success"
