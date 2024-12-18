@@ -1,7 +1,0 @@
-grpcio==1.66.2
-grpcio-testing==1.66.2
-grpcio-tools==1.66.2
-grpclib==0.4.7
-protobuf==5.27.2
-asyncio==3.4.3
-aiofiles==24.1.0

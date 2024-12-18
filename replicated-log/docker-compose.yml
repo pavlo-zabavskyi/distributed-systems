@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  master:
+    container_name: master
+    build: ./master
+    ports:
+      - '8050:8050'
+
+  secondary-a:
+    container_name: secondary-a
+    build: ./secondary
+    depends_on:
+      - master
+    ports:
+      - '50052:50051'
+#
+#  secondary-b:
+#    container_name: secondary-b
+#    build: ./secondary
+#    ports:
+#      - '50053:50051'
+#
+#  secondary-c:
+#    container_name: secondary-c
+#    build: ./secondary
+#    ports:
+#      - '50054:50051'
