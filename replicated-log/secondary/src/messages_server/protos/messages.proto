@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package messages;
+
+service Messages {
+  rpc Append (AppendRequest) returns (AppendResponse);
+  rpc GetAllMessages(GetAllMessagesRequest) returns (GetAllMessagesResponse);
+  rpc Ping (PingRequest) returns (PingResponse);
+}
+
+message AppendRequest {
+  int32 id = 1;                             // ID of the message
+  string message = 2;                       // The content of the message
+}
+
+message AppendResponse {
+  string status = 1;
+}
+
+message GetAllMessagesRequest {
+}
+
+message MessageResponse {
+  int32 id = 1;                             // ID of the message
+  string message = 2;                       // The content of the message
+}
+
+message GetAllMessagesResponse {
+  repeated MessageResponse messages = 1;    // List of all messages
+}
+
+message PingRequest {}
+
+message PingResponse {
+  PingStatus status = 1;
+}
+
+enum PingStatus {
+  UNKNOWN = 0;
+  OK = 1;
+  UNREACHABLE = 2;
+  ERROR = 3;
+}
